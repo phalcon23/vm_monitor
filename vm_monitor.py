@@ -1,6 +1,10 @@
 import subprocess
 import argparse
 import json
+import os
+
+def clear_screen():
+    os.system('clear')
 
 def list_vms(debug):
     try:
@@ -52,7 +56,7 @@ def parse_vms_to_json(debug):
                         vm_info[key.strip()] = value.strip()
                 
                 name = vm_info.get("name-label ( RW)")
-                if "Control domain" not in name:
+                if name and "Control domain" not in name:
                     vm_json = {
                         "uuid": vm_info.get("uuid ( RO)"),
                         "name": name,
@@ -94,6 +98,11 @@ def main():
 
     if args.gui:
         print("GUI mode is not implemented yet.")
+    
+    clear_screen()
+    system_name = os.uname()[1]
+    print("VMs Running on - {}".format(system_name))
+    print("")
     
     list_vms(args.debug)
     parse_vms_to_json(args.debug)
