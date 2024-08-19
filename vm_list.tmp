@@ -1,0 +1,30 @@
+uuid ( RO)           : 5637787a-140a-46b5-3f87-82b3c9d4e532
+     name-label ( RW): r-510-KALI-2
+    power-state ( RO): halted
+
+
+uuid ( RO)           : 9fd162cd-b068-46b1-bbb3-35e9c1dbc2b4
+     name-label ( RW): r510-KALI-2022
+    power-state ( RO): halted
+
+
+uuid ( RO)           : 857dd03d-6361-dc23-57b0-19454c89b904
+     name-label ( RW): Hornet4-Alma-8-Production
+    power-state ( RO): running
+
+
+uuid ( RO)           : 344a155e-5a1e-5299-6952-9e1aef2f22f1
+     name-label ( RW): hornet4-deb12-docker
+    power-state ( RO): running
+
+
+uuid ( RO)           : 1a471327-d763-4ad0-bfc2-da4848274931
+     name-label ( RW): Control domain on host: xcp-ng-r510
+    power-state ( RO): running
+
+
+uuid ( RO)           : 46372af4-9879-ff11-08d9-37ef94af7528
+     name-label ( RW): Debian Bullseye 11
+    power-state ( RO): halted
+
+
