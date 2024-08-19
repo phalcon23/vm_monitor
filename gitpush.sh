@@ -6,8 +6,8 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# Add all changes
-git add .
+# Add all changes, including deletions
+git add -A
 
 # Commit changes with the provided message
 git commit -m "$1"
