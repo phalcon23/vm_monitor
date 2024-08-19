@@ -84,7 +84,7 @@ def display_vms():
             return
         
         for vm in vm_list:
-            print("Status: {:<10} - Monitored: {:<3} - Name: {:<20} - UUID: {}".format(
+            print("Status: {:<10} - Monit: {:<3} - Name: {:<20} - UUID: {}".format(
                 vm['status'], vm['monitored'], vm['name'][:20], vm['uuid']))
     
     except Exception as e:
