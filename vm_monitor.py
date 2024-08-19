@@ -83,7 +83,7 @@ def display_vms():
             print("No VMs found in vm_list.json.")
             return
         
-        for vm in vm_list:
+        for index, vm in enumerate(vm_list, start=1):
             status = vm['status']
             monitored = vm['monitored']
             name = vm['name'][:20]
@@ -100,8 +100,11 @@ def display_vms():
             else:
                 monitored = "\033[31m{:<3}\033[0m".format(monitored)  # Dark Red
             
-            print("Status: {} - Monit: {} - Name: {:<20} - UUID: {}".format(
-                status, monitored, name, uuid))
+            # Add leading space for numbers under 10
+            index_str = "{:2})".format(index)
+            
+            print("{} Status: {} - Monit: {} - Name: {:<20} - UUID: {}".format(
+                index_str, status, monitored, name, uuid))
     
     except Exception as e:
         print("An error occurred while displaying VMs:", str(e))
