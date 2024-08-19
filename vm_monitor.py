@@ -84,8 +84,24 @@ def display_vms():
             return
         
         for vm in vm_list:
-            print("Status: {:<10} - Monit: {:<3} - Name: {:<20} - UUID: {}".format(
-                vm['status'], vm['monitored'], vm['name'][:20], vm['uuid']))
+            status = vm['status']
+            monitored = vm['monitored']
+            name = vm['name'][:20]
+            uuid = vm['uuid']
+            
+            # Apply color based on status and monitored values
+            if status == 'running':
+                status = "\033[93m{:<10}\033[0m".format(status)  # Yellow
+            else:
+                status = "\033[31m{:<10}\033[0m".format(status)  # Dark Red
+            
+            if monitored == 'yes':
+                monitored = "\033[93m{:<3}\033[0m".format(monitored)  # Yellow
+            else:
+                monitored = "\033[31m{:<3}\033[0m".format(monitored)  # Dark Red
+            
+            print("Status: {} - Monit: {} - Name: {:<20} - UUID: {}".format(
+                status, monitored, name, uuid))
     
     except Exception as e:
         print("An error occurred while displaying VMs:", str(e))
