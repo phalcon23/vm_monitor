@@ -70,6 +70,22 @@ def parse_vms_to_json(debug):
     except Exception as e:
         print("An error occurred while parsing VMs to JSON:", str(e))
 
+def display_vms():
+    try:
+        with open('vm_list.json', 'r') as json_file:
+            vm_list = json.load(json_file)
+        
+        if not vm_list:
+            print("No VMs found in vm_list.json.")
+            return
+        
+        for vm in vm_list:
+            print("Status: {} - Monitored: {} - Name: {} - UUID: {}".format(
+                vm['status'], vm['monitored'], vm['name'], vm['uuid']))
+    
+    except Exception as e:
+        print("An error occurred while displaying VMs:", str(e))
+
 def main():
     parser = argparse.ArgumentParser(description="VM Monitor Script")
     parser.add_argument('--gui', action='store_true', help="Run the script with GUI")
@@ -81,6 +97,7 @@ def main():
     
     list_vms(args.debug)
     parse_vms_to_json(args.debug)
+    display_vms()
 
 if __name__ == "__main__":
     main()
